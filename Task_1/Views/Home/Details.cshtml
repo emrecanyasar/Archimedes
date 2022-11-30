@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OrderDetailViewModel>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+ <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Ürün Adı 
+                </th>
+                <th>
+                    Ürün Adedi
+                </th>
+                <th>
+                    Fiyat
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salary)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.OrderId">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Order>
+﻿@model IEnumerable<OrderViewModel>
 
 @{
-    ViewBag.Title="Index";
+    ViewBag.Title = "Index";
 }
 
 <!DOCTYPE html>
@@ -12,93 +12,52 @@
     <title>Index</title>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequiredDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShippedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Freight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShipName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShipAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShipCity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShipRegion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShipPostalCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShipCountry)
-            </th>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Sipariş Numarası
+                </th>
+                <th>
+                    Sipariş Tarihi
+                </th>
+                <th>
+                    Müşteri Adı
+                </th>
+                <th>
+                    Yetkili Çalışan
+                </th>
+                <th>
+                    Siparişin Toplamı
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.OrderId">@Html.DisplayFor(modelItem => item.OrderId)</a>
+                    </td>
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequiredDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShippedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Freight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipRegion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipPostalCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipCountry)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiparisTarihi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MusteriAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CalisanAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CalisanAdi)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </body>
 </html>
