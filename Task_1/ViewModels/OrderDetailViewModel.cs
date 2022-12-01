@@ -8,6 +8,8 @@ namespace Task_1.ViewModels
         public string ProductName { get; set; }
         public int Quantity { get; set; }
         public decimal Salary { get; set; }
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
+        public decimal TotalPrice { get; set; }
+
     }
 }

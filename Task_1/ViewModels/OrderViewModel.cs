@@ -9,6 +9,7 @@ namespace Task_1.ViewModels
         public DateTime? SiparisTarihi { get; set; }
         public string MusteriAdi { get; set; }
         public string CalisanAdi { get; set; }
+        public decimal TotalPrice { get; set; }
 
     }
 }
