@@ -18,9 +18,6 @@
                 <th>
                     Fiyat
                 </th>
-                <th>
-                    Toplam Fiyat
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -34,10 +31,7 @@
                         @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Discount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                        @Html.DisplayFor(modelItem => item.Price)
                     </td>
                 </tr>
             }
